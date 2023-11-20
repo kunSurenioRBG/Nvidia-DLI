@@ -1,0 +1,16 @@
+Para visualizar en forma de gráfica los resultados 
+al final de cada Lab. del curso de Deep Learning,
+insertar el siguiente código en un casillero de
+comandos Python tras la salida de resultados del Lab:
+=====================================================
+
+from matplotlib import pyplot as plt
+history = model.history
+fig, axs = plt.subplots(1,1, figsize=(6, 5))
+axs.plot(history.history['accuracy'])
+axs.plot(history.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()

@@ -1,0 +1,4 @@
+-Instalacion WSL con CUDA incluido (Windows)
+https://www.youtube.com/watch?v=1HzYU2_t3yc&list=PLu5Jxpl-eSspN2taZwIjDoMB6zdp7XDlK&ab_channel=Archive
+	-Si hay problemas con la instalacion de la distro:
+	https://www.youtube.com/watch?v=RtGBNNi0dSc&ab_channel=BrainersTechnology

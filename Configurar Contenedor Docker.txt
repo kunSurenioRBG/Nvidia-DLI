@@ -1,0 +1,57 @@
+He creado una carpeta donde he añadido el cuaderno de Jupyter que hemos trabajado hoy, así como el primer ejercicio como ejemplo (dentro de una subcarpeta llamada 01-hello). En el directorio donde está el cuaderno de Jupyter he añadido un Dockerfile con el siguiente contenido:
+
+```
+
+# Imagen de CUDA 12.2.2 con CUDNN 8 y Ubuntu
+FROM nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
+
+# Dependencias de sistema
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    wget \
+    ca-certificates \
+    python3 \
+    python3-pip \
+    python3-venv \
+    python3-dev \
+    cuda-toolkit \
+    nvidia-gds
+
+# Establecer el directorio de trabajo
+WORKDIR /workspace
+
+# Instalar Jupyter
+RUN pip3 install notebook
+
+# Exponer puerto
+EXPOSE 8888
+
+# Iniciar servidor Jupyter en local
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
+
+
+```
+
+Después de eso, desde la consola en el directorio que he creado he lanzado el comando 
+docker build -t cuda-jupyter .
+
+Y tras casi 14 minutos ha terminado la construcción de la imagen Docker. Tras eso he podido levantar el servidor utilizando
+docker run -it --gpus all -p 8888:8888 -v .:/workspace cuda-jupyter
+Indicando que quiero usar GPU, mapear el puerto 8888, montar el volumen con el directorio actual en /workspace y utilizar la imagen cuda-jupyter creada en el comando anterior.
+
+Al lanzarse el contenedor, en la consola aparece el enlace para acceder al Jupyter Notebook, que requiere un token
+
+[C 2023-10-21 17:05:31.885 ServerApp]
+
+    To access the server, open this file in a browser:
+
+        file:///root/.local/share/jupyter/runtime/jpserver-1-open.html
+
+    Or copy and paste one of these URLs:
+
+        http://72801c1dadf1:8888/tree?token=5df2565d2535710dbb3187076[...]
+
+        http://127.0.0.1:8888/tree?token=5df2565d2535710dbb3187076[...]
+
+Copiando y entrando en el enlace ya podemos abrir el notebook de nvidia (o crear uno propio) e ir ejecutando interactivamente ejercicios que tengamos en dicha carpeta.

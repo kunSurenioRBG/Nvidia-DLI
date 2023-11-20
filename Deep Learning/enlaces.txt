@@ -1,0 +1,5 @@
+-Cómo Entrenar una Red Neuronal en MNIST con Keras
+https://youtu.be/lxAwYYEBLsM
+-Exportar carpeta de Jupyter Notebook / Labs
+!zip -r example.zip original_folder
+(execute on a new terminal and go to dli/task/ forlder. By adding ! you tell the notebook that you wanna execute external commands)

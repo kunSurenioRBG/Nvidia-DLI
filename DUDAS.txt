@@ -1,0 +1,3 @@
+-litografia tarjeta grafica apuntes mios
+-Categorical Encoding
+-usamos conjunto de entrenamiento y validacion, pero de prueba tmb?

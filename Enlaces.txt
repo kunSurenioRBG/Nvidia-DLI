@@ -1,0 +1,8 @@
+-GUIA INSTALACION CUDA WINDOWS / LINUX-
+https://ipg-automotive.com/en/support/support-request/faq/how-to-set-up-the-gpu-coding-interface-with-visual-studio-code-250/
+-Enlace campus-
+https://ensenanzaspropias.cv.uma.es/course/view.php?id=5886
+-Acceso gratuito al curso-
+https://courses.nvidia.com/dli-event
+-Enlace Dataset
+https://www.kaggle.com/
